@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="col-md-offset-2 col-md-8 post">
+  <p class="text-right date">{{ post.pub_date.date }}</p>
+  <h3 class="title text-center letter-space">{{ post.title }}</h3>
+  <p class="text-justify">{{ post.content|safe }}</p>
+  <footer>
+    <!--<p class="align-left"><a href="#">Comment</a></p>-->
+    {% if post.edited %}
+    <p class="align-right">Last edited on {{ post.edit_date }}</p>
+    {% endif %}
+    <div class="clear"></div>
+  </footer>
+  <section class="comments">
+    <form method="post" action="{% url 'posts:comment' post.id %}">
+      {% csrf_token %}
+      {{ comment_form.as_p }}
+      <input class='btn btn-default align-right' type='submit' value='Comment'>
+      </input>
+      <div class="clear"></div>
+    </form>
+    {% for comment in comments %}
+      {% include "posts/comment.html" %}
+    {% endfor %}
+  </section>
+</section>
+
+{% endblock %}

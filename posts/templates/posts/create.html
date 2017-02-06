@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block header-extra %}
+  {{ form.media }}
+{% endblock %}
+
+{% block content %}
+
+<form method='post' class='main-form col-md-offset-2 col-md-8'>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input class='btn btn-default' type='submit' value='Post'></input>
+</form>
+
+{% endblock %}

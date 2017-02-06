@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--<div class="container">-->
+{% for post in posts %}
+<div class="row">
+  <section class="col-md-offset-2 col-md-8 post">
+    <p class="text-right date">{{ post.pub_date.date }}</p>
+    <h3 class="title text-center letter-space">{{ post.title }}</h3>
+    <p class="text-justify">{{ post.content|safe }}</p>
+    <footer>
+      <p class="align-left"><a href="{% url 'posts:detail' post.id %}">Read More/Comment</a></p>
+      {% if post.edited %}
+      <p class="align-right">Last edited on {{ post.edit_date }}</p>
+      {% endif %}
+      <div class="clear"></div>
+    </footer>
+  </section>
+</div>
+{% endfor %}
+
+<div class="row">
+  <div class="col-md-offset-4 col-md-4 text-center">
+      <span class="step-links">
+          {% if posts.has_previous %}
+              <a href="?page={{ posts.previous_page_number }}">previous</a>
+          {% endif %}
+
+          <span class="current">
+              Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+          </span>
+
+          {% if posts.has_next %}
+              <a href="?page={{ posts.next_page_number }}">next</a>
+          {% endif %}
+      </span>
+  </div>
+</div>
+
+<!--</div>-->
+{% endblock %}
