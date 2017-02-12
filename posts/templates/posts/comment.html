@@ -1,8 +1,22 @@
-<section class="comment">
+{% load guardian_tags %}
+
+<section class="comment" id="comment-{{ comment.id }}">
   <div class="comment-thumbnail">
     <img src="{{ comment.user.profile.photo_url }}" width="48" height="48">
   </div>
-  <p><a href="#">{{ comment.user.username }}</a></p>
-  <p>{{ comment.content }}</p>
+  <p><a href="{% url 'profile' comment.user.username %}">
+    {{ comment.user.username }}
+  </a></p>
+  <p class="com-content">{{ comment.content }}</p>
+  <p class="text-right">
+    {% get_obj_perms request.user for comment as "comment_perms" %}
+
+    {% if "change_delete" in comment_perms %}
+    <a href="{% url 'posts:comment_edit' post.id comment.id %}" class="com-edit">Edit</a>
+    <a href="#" data-link="{% url 'posts:comment_delete' post.id comment.id %}"
+    class="comment-del" id="del-{{ post.id }}"
+    data-toggle="modal" data-target="#deleteModal">Delete</a>
+    {% endif %}
+  </p>
   <div class="clear"></div>
 </section>

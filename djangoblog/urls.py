@@ -18,13 +18,15 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+from accounts.views import profile_view
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^summernote/', include('django_summernote.urls')),
     url(r'^', include('posts.urls')),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^accounts/', include('allauth.urls')),
-
+    url(r'^(?P<username>.+)/$', profile_view, name='profile'),
 ]
 
 if settings.DEBUG:

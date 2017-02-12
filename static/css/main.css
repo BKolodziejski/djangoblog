@@ -86,3 +86,47 @@ p {
 .comment p {
   overflow: auto;
 }
+
+.about-author {
+  text-align: center;
+  border: 1px solid #aaaaff;
+  margin-top: 60px;
+}
+
+.about-author img {
+  display: inline-block;
+  margin: -25px auto 0 auto;
+}
+
+.author-info {
+  margin-top: -20px;
+  padding-top: 20px;
+  background-color: #555;
+}
+
+.author-info h5 {
+  letter-spacing: 1.5px;
+}
+
+.tags {
+  word-spacing: 250%;
+}
+
+.slide-toggler {
+  margin: -4px auto 0 auto;
+  cursor: pointer;
+}
+
+#about-me-footer {
+  display: block;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+#full-description {
+  display: none;
+}
+
+#search {
+  text-align: center;
+}

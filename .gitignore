@@ -1,0 +1,6 @@
+media
+*.pyc
+djangoblog/settings_secret.py
+db.sqlite3
+posts/migrations
+accounts/migrations

@@ -1,0 +1,30 @@
+{% load guardian_tags %}
+
+<p class="text-right date">{{ post.pub_date.date }}</p>
+{% if post.tags.all %}
+<p class="text-left tags">
+  Tags:
+  {% for tag in post.tags.all %}
+  <a href="{% url 'posts:tagged_list' tag %}">{{ tag }}</a><!-- removing space
+  -->{% if not forloop.last %}, {% endif %}
+  {% endfor %}
+{% endif %}
+<h3 class="title text-center letter-space">{{ post.title }}</h3>
+<p class="text-justify">{{ post.content|safe }}</p>
+<footer>
+  <p class="align-left">
+    <a href="{% url 'posts:detail' post.id %}">Read More/Comment</a>
+    {% get_obj_perms request.user for post as "post_perms" %}
+
+    {% if "change_delete" in post_perms %}
+    <a href="{% url 'posts:post_edit' post.id %}">Edit</a>
+    <a href="#" data-link="{% url 'posts:post_delete' post.id %}"
+    class="post-del" id="del-{{ post.id }}"
+    data-toggle="modal" data-target="#deleteModal">Delete</a>
+    {% endif %}
+  </p>
+  {% if post.edited %}
+  <p class="align-right">Last edited on {{ post.edit_date }}</p>
+  {% endif %}
+  <div class="clear"></div>
+</footer>

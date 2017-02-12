@@ -17,6 +17,8 @@
   integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7 uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
   crossorigin="anonymous">
 
+  <link rel="stylesheet" type="text/css" href="{% static 'css/flaticon.css' %}">
+
   {% block header-extra %}
   {% endblock %}
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
@@ -30,15 +32,22 @@
       </ul>
       <ul class="nav navbar-nav navbar-right letter-space">
         {% if user.is_authenticated %}
-        <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
+        <li><a href="{% url 'profile' user.username %}">Profile</a></li>
         <li><a href="{% url 'account_logout' %}">Log out</a></li>
         {% else %}
         <li><a href="{% url 'account_login' %}">Log in</a></li>
         <li><a href="{% url 'account_signup' %}">Sign up</a></li>
         {% endif %}
       </ul>
+      <form class="navbar-form" id="search" role="search">
+        <input type="text" id="search-input" class="form-control"
+         placeholder="Search">
+      </form>
     </div>
   </nav>
+
+{% block pre-container %}
+{% endblock %}
 
 <div class="container">
   {% if messages %}
@@ -55,6 +64,24 @@
 {% endblock %}
 </div>
 
+<div id="deleteModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Delete</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger del-btn">Delete</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script
 			  src="https://code.jquery.com/jquery-3.1.1.min.js"
 			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -63,5 +90,13 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
   integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
   crossorigin="anonymous"></script>
+  {% if user.is_authenticated %}
+  <script>
+    var redirectToProfile = function(){
+    window.location.replace("{% url 'profile' user.username %}");
+  }
+  </script>
+  {% endif %}
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

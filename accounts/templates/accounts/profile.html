@@ -1,11 +1,29 @@
 {% extends "base.html" %}
+{% block pre-container %}
+<section class="author-info container-fluid">
+<img src="{{ profile.photo_url }}" class="img-circle center-block" width="150" height="150">
+
+<h3 class="text-center">{{ profile.user.username }}</h3>
+
+<footer id="about-me-footer" class="text-center">
+  <h5>ABOUT ME</h5>
+  <div id="full-description">{{ profile.full_description|safe }}</div>
+</footer>
+<div class="slide-toggler text-center">
+  <i class="glyphicon glyphicon-chevron-down"></i>
+</div>
+
+</section>
+{% endblock %}
 {% block content %}
+{% for post in posts %}
+<div class="row">
+  <section class="col-md-offset-2 col-md-8 post">
+    {% include "posts/post.html" %}
+  </section>
+</div>
+{% endfor %}
 
-<img src="{{ profile.photo_url }}" width="200" height="200">
-
-<ul>
-  <li>{{ profile.user.username }}</li>
-  <li>{{ profile.short_description }}</li>
-</ul>
+{% include "pagination.html" with obj=posts %}
 
 {% endblock %}

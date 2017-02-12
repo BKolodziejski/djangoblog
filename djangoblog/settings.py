@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     # third party
+    'taggit',
     'django_summernote',
+    'guardian',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -84,6 +86,7 @@ TEMPLATES = [
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
+    'guardian.backends.ObjectPermissionBackend',
 
     # `allauth` specific authentication methods, such as login by e-mail
     'allauth.account.auth_backends.AuthenticationBackend',
@@ -158,3 +161,5 @@ MESSAGE_TAGS = {
 SUMMERNOTE_CONFIG = {
     'width': '100%',
 }
+
+TAGGIT_CASE_INSENSITIVE = True

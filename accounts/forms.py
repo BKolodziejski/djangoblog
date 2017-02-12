@@ -14,9 +14,12 @@ class ProfileForm(forms.ModelForm):
         fields = ['photo', 'short_description', 'full_description',
                   'date_of_birth', 'signature']
         widgets = {
-        'short_description': forms.Textarea(),
+        'short_description': forms.Textarea(attrs={'rows' : 2,
+                                                   'cols' : 86,
+                                                   'style': 'resize:none;',
+                                                  }),
         'full_description' : SummernoteWidget(),
         'date_of_birth'    : forms.SelectDateWidget(
-                             years=range(1910, date.today().year)
+                             years=range(date.today().year - 5, 1910, -1)
                              ),
         }

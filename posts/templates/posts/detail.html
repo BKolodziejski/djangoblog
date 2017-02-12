@@ -1,18 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<div class="row">
 <section class="col-md-offset-2 col-md-8 post">
-  <p class="text-right date">{{ post.pub_date.date }}</p>
-  <h3 class="title text-center letter-space">{{ post.title }}</h3>
-  <p class="text-justify">{{ post.content|safe }}</p>
-  <footer>
-    <!--<p class="align-left"><a href="#">Comment</a></p>-->
-    {% if post.edited %}
-    <p class="align-right">Last edited on {{ post.edit_date }}</p>
-    {% endif %}
-    <div class="clear"></div>
-  </footer>
+  {% include "posts/post.html" %}
   <section class="comments">
     <form method="post" action="{% url 'posts:comment' post.id %}">
       {% csrf_token %}
@@ -26,5 +17,17 @@
     {% endfor %}
   </section>
 </section>
-
+</div>
+<div class="row">
+{% if post.similar_posts %}
+<footer class="similar-posts col-md-offset-2 col-md-8">
+  <h5>Similar Posts:</h5>
+  <ul>
+    {% for post in post.similar_posts %}
+    <li><a href="{% url 'posts:detail' post.id %}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</footer>
+{% endif %}
+</div>
 {% endblock %}

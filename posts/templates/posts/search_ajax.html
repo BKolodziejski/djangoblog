@@ -1,10 +1,5 @@
-{% extends "base.html" %}
-
 {% block content %}
-{% if tag %}
-<h3 class="text-center">Posts tagged as {{ tag }}:</h3>
-{% endif %}
-<!--<div class="container">-->
+
 {% for post in posts %}
 <div class="row">
   <section class="col-md-offset-1 col-md-8 post">
@@ -18,11 +13,14 @@
     <p class="text-justify">{{ post.user.profile.short_description }}</p>
   </aside>
 </div>
+{% empty %}
+<h3 class="text-center">No posts found</h3>
 {% endfor %}
+
 <div class="row">
   <div class="col-md-offset-1 col-md-8">
     {% include "pagination.html" with obj=posts %}
   </div>
 </div>
-<!--</div>-->
+
 {% endblock %}
