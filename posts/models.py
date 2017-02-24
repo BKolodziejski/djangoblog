@@ -49,5 +49,9 @@ class Comment(models.Model):
             ('change_delete', 'Can change and delete comment'),
         )
 
+    @property
+    def edited(self):
+        return True if self.edit_date - self.pub_date > DATETIME_EPSILON else False
+
     def __str__(self):
         return str(self.content)[:30]

@@ -18,7 +18,9 @@ $(document).ready(function(){
       $.get({
         url: '/search/' + text,
         success: function(data){
-          $('.container').html(data)
+          $('.container').html(data);
+          var rel_page_link = $('.step-links > a').attr('href');
+          $('.step-links > a').attr('href', '/search/' + text + rel_page_link);
         }
       })
     }
@@ -53,8 +55,8 @@ $(document).ready(function(){
     comment = $comment.prop('outerHTML');
     var content = $(this).parent().siblings('.com-content').text();
     $comment.replaceWith(
-      "<form method='post' action='" + link + "'>\
-        <textarea cols='88' id='id_content' maxlength='400' name='content' \
+      "<form method='post' class='com-form' action='" + link + "'>\
+        <textarea cols='88' maxlength='400' name='content' \
         rows='2' style='resize:none;' required=''>" + content + "</textarea>\
         <input class='btn btn-default align-right edit-btn' type='submit' value='Update'>\
         </input>\

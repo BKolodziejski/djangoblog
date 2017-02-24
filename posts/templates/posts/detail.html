@@ -4,18 +4,18 @@
 <div class="row">
 <section class="col-md-offset-2 col-md-8 post">
   {% include "posts/post.html" %}
-  <section class="comments">
-    <form method="post" action="{% url 'posts:comment' post.id %}">
-      {% csrf_token %}
-      {{ comment_form.as_p }}
-      <input class='btn btn-default align-right' type='submit' value='Comment'>
-      </input>
-      <div class="clear"></div>
-    </form>
-    {% for comment in comments %}
-      {% include "posts/comment.html" %}
-    {% endfor %}
-  </section>
+</section>
+<section class="col-md-offset-2 col-md-8 comments">
+  <form method="post" class="com-form" action="{% url 'posts:comment' post.id %}">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <input class='btn btn-default align-right' type='submit' value='Comment'>
+    </input>
+    <div class="clear"></div>
+  </form>
+  {% for comment in comments %}
+    {% include "posts/comment.html" %}
+  {% endfor %}
 </section>
 </div>
 <div class="row">

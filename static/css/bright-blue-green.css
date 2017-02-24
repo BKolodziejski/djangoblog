@@ -1,0 +1,64 @@
+a {
+  color: #fb2032;
+}
+
+a:hover {
+  color: #f83547;
+}
+
+a:visited {
+  color: #fb2032;
+}
+
+
+.navbar-default {
+  background-color: #4cdef5;
+  border-color: #3bcde4;
+}
+
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+
+
+.navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #f5ff38;
+}
+
+.about-author {
+  border-color: #ddda92;
+  background-color: #fffdb5;
+  color: #000000;
+}
+
+.author-info {
+  background-color: #e9ebe9;
+}
+
+.slide-toggler {
+  background: linear-gradient(#e9ebe9, #e1e4e1);
+}
+
+.post {
+  border-color: #a4d555;
+}
+
+.main-form {
+  background-color: #f1f2f1;
+}
+
+.comment {
+  border-color: #f83547;
+}
+
+.date {
+  color: #b6b7ba;
+}
+
+.com-form textarea {
+  border-color: #f83547;
+}

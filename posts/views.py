@@ -130,10 +130,12 @@ def search(request, text):
     if request.is_ajax():
         return render(request, 'posts/search_ajax.html', {'posts': posts})
     else:
-        return render(request, 'posts/home.html', {'posts': posts})
+        prefix = '/search/' + text
+        return render(request, 'posts/home.html', {'posts' : posts,
+                                                   'prefix': prefix })
 
 def list_tagged_posts(request, tag_slug):
-    tag = get_object_or_404(Tag, name=tag_slug)
+    tag = get_object_or_404(Tag, slug=tag_slug)
     posts = paginate(Post.objects.filter(tags__in=[tag]), request, POSTS_PER_PAGE)
 
     return render(request, 'posts/home.html', { 'posts': posts, 'tag': tag_slug})

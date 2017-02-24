@@ -13,7 +13,9 @@
   <aside class="col-md-offset-1 col-md-2 about-author">
     <img src="{{ post.user.profile.photo_url }}" class="img-circle" width="50" height="50">
     <p class="text-center">
-      <span class="author">{{ post.user.username }}</span>
+      <a href="{% url 'profile' post.user.username %}">
+        <span class="author">{{ post.user.username }}</span>
+      </a>
     </p>
     <p class="text-justify">{{ post.user.profile.short_description }}</p>
   </aside>

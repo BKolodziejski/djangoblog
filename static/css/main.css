@@ -7,7 +7,6 @@ body {
 }
 
 * {
-  /*border: 1px solid black;*/
   box-sizing: border-box;
 }
 
@@ -45,7 +44,6 @@ p {
 
 .post footer {
   height: 100%;
-  border-bottom: 1px solid black;
 }
 
 .main-form {
@@ -87,9 +85,47 @@ p {
   overflow: auto;
 }
 
+.comment {
+  border: 1px solid;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 15px;
+}
+
+.comment:last-child {
+  margin-bottom: 20px;
+}
+
+.com-form {
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.com-form textarea {
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid;
+  padding: 5px;
+}
+
+.post {
+  margin-bottom: 40px;
+  padding: 10px 25px;
+}
+
+.post:first-child {
+  margin-top: 30px;
+}
+
+.about-author, .post {
+  border-radius: 10px;
+  border: 1px solid;
+}
+
 .about-author {
   text-align: center;
-  border: 1px solid #aaaaff;
   margin-top: 60px;
 }
 
@@ -101,7 +137,6 @@ p {
 .author-info {
   margin-top: -20px;
   padding-top: 20px;
-  background-color: #555;
 }
 
 .author-info h5 {
@@ -113,8 +148,15 @@ p {
 }
 
 .slide-toggler {
+  width: 100%;
   margin: -4px auto 0 auto;
   cursor: pointer;
+}
+
+.date {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 85%;
 }
 
 #about-me-footer {
@@ -129,4 +171,8 @@ p {
 
 #search {
   text-align: center;
+}
+
+#search-input {
+  width: 20%;
 }

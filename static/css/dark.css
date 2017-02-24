@@ -1,0 +1,69 @@
+body {
+  color: #f5f5f5;
+  background-color: #3d444f;
+}
+
+a {
+  color: #00ff55;
+}
+
+a:hover {
+  color: #00ff3b;
+}
+
+a:visited {
+  color: #00ff55;
+}
+
+
+.navbar-default {
+  background-color: #1d2738;
+  border-color: #0b0414;
+}
+
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+
+
+.navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #ed2700;
+}
+
+.about-author {
+  border-color: #001111;
+  background-color: #000d19;
+  color: #f5f5f5;
+}
+
+.author-info {
+  background-color: #161b26;
+}
+
+.slide-toggler {
+  background: linear-gradient(#e9ebe9, #e1e4e1);
+}
+
+.post {
+  background-color: #010e23;
+}
+
+.main-form {
+  background-color: #f1f2f1;
+}
+
+.comment {
+  border-color: #f83547;
+}
+
+.date {
+  color: #b6b7ba;
+}
+
+.com-form textarea {
+  border-color: #f83547;
+}
