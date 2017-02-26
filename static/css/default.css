@@ -29,6 +29,11 @@ a:visited {
     color: #f5ff38;
 }
 
+.profile-controls {
+  background-color: #5a5c60 !important;
+  border-bottom: 1px solid #494b50 !important;
+}
+
 .about-author {
   border-color: #ddda92;
   background-color: #fffdb5;

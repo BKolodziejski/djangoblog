@@ -19,6 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from accounts.views import profile_view
+from utils import set_theme
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,6 +27,7 @@ urlpatterns = [
     url(r'^', include('posts.urls')),
     url(r'^accounts/', include('accounts.urls')),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^theme/', set_theme, name='set_theme'),
     url(r'^(?P<username>.+)/$', profile_view, name='profile'),
 ]
 

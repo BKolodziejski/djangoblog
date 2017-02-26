@@ -78,6 +78,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'context_processors.select_theme',
             ],
         },
     },
@@ -159,6 +160,7 @@ MESSAGE_TAGS = {
 }
 
 SUMMERNOTE_CONFIG = {
+    'iframe': False,
     'width': '100%',
 }
 

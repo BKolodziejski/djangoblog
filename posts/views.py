@@ -14,7 +14,7 @@ from guardian.shortcuts import assign_perm
 
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
-from .utils import paginate
+from utils import paginate
 
 # Create your views here.
 

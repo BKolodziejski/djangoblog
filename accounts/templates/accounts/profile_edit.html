@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block header-extra %}
+  {{ form.media }}
+{% endblock %}
+
 {% block content %}
 
 <form method='post' class='main-form col-md-offset-2 col-md-8' enctype="multipart/form-data">

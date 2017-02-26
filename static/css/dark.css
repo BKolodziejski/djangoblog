@@ -7,7 +7,7 @@ a {
   color: #00ff55;
 }
 
-a:hover {
+a:hover, a:focus {
   color: #00ff3b;
 }
 
@@ -15,7 +15,23 @@ a:visited {
   color: #00ff55;
 }
 
+input, textarea, select {
+  background-color: #010e23;
+}
 
+/* override summernote */
+.note-editor.note-frame .note-editing-area .note-editable {
+  background-color: #010e23;
+  color: #f5f5f5;
+}
+
+.note-editor.note-frame .note-statusbar {
+  background-color: #000b1c;
+}
+
+.panel-default > .panel-heading {
+  background-color: #000b1c;
+}
 .navbar-default {
   background-color: #1d2738;
   border-color: #0b0414;
@@ -45,7 +61,7 @@ a:visited {
 }
 
 .slide-toggler {
-  background: linear-gradient(#e9ebe9, #e1e4e1);
+  background: linear-gradient(#161b26, #100f1c);
 }
 
 .post {
@@ -53,11 +69,11 @@ a:visited {
 }
 
 .main-form {
-  background-color: #f1f2f1;
+  background-color: #161b26;
 }
 
 .comment {
-  border-color: #f83547;
+  border-color: #00ff3b;
 }
 
 .date {
@@ -65,5 +81,35 @@ a:visited {
 }
 
 .com-form textarea {
-  border-color: #f83547;
+  border-color: #00ff3b;
+}
+
+.profile-controls {
+  background-color: #0e131c !important;
+}
+
+.modal-body, .modal-header, .modal-footer {
+  background-color: #161b26;
+  border: none;
+  color: white;
+}
+
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover {
+  background-color: #0c1627;
+  color: #ed2700;
+}
+
+.dropdown-menu {
+  background-color: #1d2738;
+}
+
+.dropdown-menu > li > a {
+  color: #f5f5f5;
+}
+
+.dropdown-menu > li > a:hover {
+  background-color: #0c1627;
+  color: #ed2700;
 }

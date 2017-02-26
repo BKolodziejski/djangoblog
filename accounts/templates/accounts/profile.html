@@ -1,5 +1,22 @@
 {% extends "base.html" %}
+
+{% load guardian_tags %}
+
 {% block pre-container %}
+
+{% get_obj_perms request.user for profile as "profile_perms" %}
+
+{% if "change" in profile_perms %}
+<nav class="navbar navbar-default navbar-static-top profile-controls">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav navbar-right letter-space">
+      <li><a href="{% url 'accounts:profile_edit' %}">Edit Profile</a></li>
+      <li><a href="{% url 'accounts:change_password' %}">Change Password</a></li>
+    </ul>
+  </div>
+</nav>
+{% endif %}
+
 <section class="author-info container-fluid">
 <img src="{{ profile.photo_url }}" class="img-circle center-block" width="150" height="150">
 

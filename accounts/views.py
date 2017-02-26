@@ -1,21 +1,31 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from allauth.account.views import SignupView, LoginView, LogoutView
+from allauth.account.views import SignupView, LoginView, LogoutView,\
+                                  PasswordChangeView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.urls import reverse_lazy
 
 from .models import Profile
 from posts.models import Post
-from posts.utils import paginate
+from utils import paginate
 from .forms import ProfileForm
 
 class MySignupView(SignupView):
     template_name = 'accounts/signup.html'
+
+    def __init__(self):
+        super().__init__()
+        self.success_url = reverse_lazy('accounts:profile_edit')
 
 class MyLoginView(LoginView):
     template_name = 'accounts/login.html'
 
 class MyLogoutView(LogoutView):
     template_name = 'accounts/logout.html'
+
+class MyPasswordChangeView(PasswordChangeView):
+    success_url = reverse_lazy('posts:home')
+    template_name = 'accounts/change_password.html'
 
 def profile_view(request, username):
     user = get_object_or_404(User, username=username)

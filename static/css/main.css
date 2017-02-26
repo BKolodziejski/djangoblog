@@ -14,14 +14,6 @@ p {
   word-wrap: break-word;
 }
 
-.navbar-nav li {
-  padding: 0 5px;
-}
-
-.navbar-left:first-child a {
-  padding-left: 0;
-}
-
 .letter-space {
   letter-spacing: 1.5px;
 }
@@ -157,6 +149,20 @@ p {
   display: inline-block;
   margin-left: 10px;
   font-size: 85%;
+}
+
+.profile-controls {
+  margin-top: -20px;
+  z-index: 1;
+}
+
+.profile-controls .navbar-nav > li > a, .profile-controls .navbar-brand {
+  padding-top:4px !important;
+  padding-bottom:0 !important;
+  height: 28px;
+}
+.profile-controls.navbar {
+  min-height:28px !important;
 }
 
 #about-me-footer {

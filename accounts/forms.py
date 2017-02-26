@@ -1,7 +1,7 @@
 from django import forms
 from datetime import date
 
-from django_summernote.widgets import SummernoteWidget
+from django_summernote.widgets import SummernoteInplaceWidget
 
 from .models import Profile
 
@@ -12,13 +12,13 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['photo', 'short_description', 'full_description',
-                  'date_of_birth', 'signature']
+                  'date_of_birth']
         widgets = {
         'short_description': forms.Textarea(attrs={'rows' : 2,
-                                                   'cols' : 86,
-                                                   'style': 'resize:none;',
+                                                   'style': 'resize:none;\
+                                                             width:100%;',
                                                   }),
-        'full_description' : SummernoteWidget(),
+        'full_description' : SummernoteInplaceWidget(),
         'date_of_birth'    : forms.SelectDateWidget(
                              years=range(date.today().year - 5, 1910, -1)
                              ),
