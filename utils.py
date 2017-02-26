@@ -16,5 +16,4 @@ def paginate(objects, request, num_per_page=5):
 
 def set_theme(request):
     request.session['preferred_theme'] = request.GET.get('theme', 'default') + '.css'
-    print("AAA" + request.GET.get('theme', 'default'))
     return redirect('posts:home')
