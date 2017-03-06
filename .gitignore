@@ -5,3 +5,4 @@ db.sqlite3
 posts/migrations
 accounts/migrations
 env
+static

@@ -1,11 +1,16 @@
 html {
-  height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 body {
   height: 100%;
+  margin-bottom: 45px;
 }
 
+img {
+  max-width: 100%;
+}
 * {
   box-sizing: border-box;
 }
@@ -36,6 +41,16 @@ p {
 
 .post footer {
   height: 100%;
+}
+
+.github-info {
+  position: absolute;
+  bottom: 0;
+  height: 30px;
+  line-height: 30px;
+  background-color: #222;
+  color: #f4f4f4;
+  width: 100%;
 }
 
 .main-form {

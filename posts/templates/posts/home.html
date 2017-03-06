@@ -3,6 +3,8 @@
 {% block content %}
 {% if tag %}
 <h3 class="text-center">Posts tagged as {{ tag }}:</h3>
+{% else %}
+<h3 class="text-center">Latest Posts:</h3>
 {% endif %}
 <!--<div class="container">-->
 {% for post in posts %}
